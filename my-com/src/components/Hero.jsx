@@ -9,13 +9,12 @@ const Hero = () => {
     const photoData = [hero, hero1, hero2, hero3]
     const [index, setIndex] = useState(0)
 
-    useEffect(()=>{
-       const time = setInterval(()=>(
-            setIndex((prev)=>(prev+1) % photoData.length)
-        ) , 3000)
-return()=>clearInterval(time)
+    useEffect(() => {
+        const time = setInterval(() => (
+            setIndex((prev) => (prev + 1) % photoData.length)
+        ), 3000)
+        return () => clearInterval(time)
     }, [photoData.length])
-
 
 
     return (
@@ -25,7 +24,7 @@ return()=>clearInterval(time)
 
                     i === index ? (
 
-                        <img src={photo} key={i} alt="" className='w-full h-full object-cover transition-all duration-700' />
+                        <img src={photo} key={i} alt="" className='w-full h-full object-cover' />
 
 
                     ) : null
