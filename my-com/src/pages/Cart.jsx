@@ -4,7 +4,7 @@ import { CartContext } from '../context/CartContex';
 import Button from '../components/Button';
 
 const Cart = () => {
-  const { cartProduct } = useContext(CartContext);
+  const { cartProduct , handleDelete } = useContext(CartContext);
 
   return (
     <section className="w-full min-h-screen bg-white dark:bg-[#0A2025] pt-16">
@@ -39,7 +39,7 @@ const Cart = () => {
                 <td className="px-2 py-2">1</td>
                 <td className="px-2 py-2">₹{item.price}</td>
                 <td className="px-2 py-2">
-                  <Button  text="delete" color='bg-red-600 text-white hover:bg-red-900'   />
+                  <Button  text="delete" color='bg-red-600 text-white hover:bg-red-900' onClick={()=>handleDelete(item.id)} />
                 </td>
               </tr>
             ))}
