@@ -10,6 +10,7 @@ import Aboutus from './pages/Aboutus'
 import ProductCard from './components/ProductCard'
 import axios from "axios"
 import { CartProvider } from './context/CartContex.jsx'
+import SinglePage from './pages/SinglePage.jsx'
 
 
 const App = () => {
@@ -47,7 +48,9 @@ const App = () => {
           <Route path='/about' element={<Aboutus />} />
           <Route path='/login' element={<Login />} />
           <Route path='/shop' element={<Shop />} />
+          <Route path='/single' element={<SinglePage/>}></Route>
           <Route path='/signup' element={<Signup />} />
+
         </Routes>
       </BrowserRouter>
       </CartProvider>
