@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 
+
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -8,6 +9,8 @@ export const CartProvider = ({ children }) => {
   const [itemQuantity, setItemQuantity] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
   const [imagehandle , setImagehandle] = useState("")
+
+
 
   const handleAddToCart = (item) => {
     const isExist = cartProduct.find(product => product.id === item.id);
@@ -80,12 +83,12 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
+const handleImageClick = (product) => {
+  setImagehandle(product);
+  localStorage.setItem("selectedProduct", JSON.stringify(product)); 
+};
 
- const handleImageClick = (id)=>{
-  const imageClick = cartProduct.find((photo ,item) => photo.id === id )
-  setImagehandle(imageClick)
-  console.log(imagehandle,"ttry")
- }
+
 
   useEffect(() => {
     if (cartProduct.length > 0) {
@@ -97,7 +100,7 @@ export const CartProvider = ({ children }) => {
   }, [cartProduct]);
 
   return (
-    <CartContext.Provider value={{ handleAddToCart, cartProduct, cartItemLength, handleDelete, itemQuantity, setItemQuantity , decreaseQuantity , increaseQuantity, totalPrice , handleImageClick }}>
+    <CartContext.Provider value={{ handleAddToCart, cartProduct, cartItemLength, handleDelete, itemQuantity, setItemQuantity , decreaseQuantity , increaseQuantity, totalPrice , handleImageClick , imagehandle , setImagehandle }}>
       {children}
     </CartContext.Provider>
   );

@@ -4,7 +4,7 @@ import { CartContext } from '../context/CartContex';
 import Button from '../components/Button';
 
 const Cart = () => {
-  const { cartProduct, handleDelete, itemQuantity,handleImageClick ,  totalPrice , decreaseQuantity, increaseQuantity } = useContext(CartContext);
+  const { cartProduct, handleDelete, totalPrice , decreaseQuantity, increaseQuantity } = useContext(CartContext);
 
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Cart = () => {
             Array.isArray(cartProduct) && cartProduct.map((item, i) => (
               <div className="md:flex items-strech py-5 md:py-10 lg:py-8 border-t border-gray-50" key={i}>
                 <div className="md:w-4/12 2xl:w-1/4 w-full">
-                  <img src={item.images} alt={item.title} className="h-full object-center object-cover md:block hidden hover:cursor-pointer" onClick={()=>handleImageClick(item.id)} />
+                  <img src={item.images} alt={item.title} className="h-full object-center object-cover md:block hidden hover:cursor-pointer" />
                 </div>
                 <div className="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
                   <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">ID: {item.id}</p>
